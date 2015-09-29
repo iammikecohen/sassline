@@ -2,19 +2,19 @@
 // ---------------------------------------
 
 body {
-  background-color: $backgroundColour;
-  color: $bodyColour;
+  background-color: $sassline-backgroundColour;
+  color: $sassline-bodyColour;
   overflow-x: hidden;
 }
 
 .section {
   padding: 2rem 0;
 
-  @include breakpoint(break-1) {
+  @include sassline-breakpoint(break-1) {
     padding: 3rem 0;
   }
 
-  @include breakpoint(break-2) {
+  @include sassline-breakpoint(break-2) {
     padding: 4rem 0;
   }
 }
@@ -26,7 +26,7 @@ img {
   vertical-align: middle;
   width: 100%;
 
-  @include breakpoint(break-1) {
+  @include sassline-breakpoint(break-1) {
     margin: 0 auto;
     max-width: 100%;
     width: auto;
@@ -34,5 +34,5 @@ img {
 }
 
 .button-align {
-  @include baseline(zeta, $bodytype, 2, 2, all);
+  @include sassline-baseline(zeta, $sassline-bodytype, 2, 2, all);
 }

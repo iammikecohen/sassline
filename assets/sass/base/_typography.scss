@@ -6,17 +6,17 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 
-  @include rootsize;
+  @include sassline-rootsize;
 }
 
 // Site-wide base styles.
 body {
-  font-family: unquote(map-get($bodytype, font-family));
+  font-family: unquote(map-get($sassline-bodytype, font-family));
   font-style: normal;
-  font-weight: map-get($bodytype, regular);
+  font-weight: map-get($sassline-bodytype, regular);
   line-height: 2rem;
 
-  @include fontsize(zeta, all);
+  @include sassline-fontsize(zeta, all);
 }
 
 // Links.
@@ -27,11 +27,11 @@ a {
   -o-transition: color .1s, background-color .1s;
   transition: color .1s, background-color .1s;
 
-  color: $linkColour;
+  color: $sassline-linkColour;
   text-decoration: none;
 
   &:hover, &:active, &:focus {
-    color: $hoverColour;
+    color: $sassline-hoverColour;
     text-decoration: none;
   }
 }
@@ -41,20 +41,20 @@ a {
 
   // Nice underlines for text links.
   p a, li a {
-    background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($linkColour,20%) 50%);
-    background-image: -moz-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($linkColour,20%) 50%);
-    background-image: -o-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($linkColour,20%) 50%);
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,lighten($linkColour,20%) 50%);
+    background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($sassline-linkColour,20%) 50%);
+    background-image: -moz-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($sassline-linkColour,20%) 50%);
+    background-image: -o-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($sassline-linkColour,20%) 50%);
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,lighten($sassline-linkColour,20%) 50%);
     background-position: 0 93%;
     background-repeat: repeat-x;
     background-size: 100% 0.15rem;
-    text-shadow: 0.1rem 0 $backgroundColour,0.15rem 0 $backgroundColour,-0.1rem 0 $backgroundColour,-0.15rem 0 $backgroundColour;
+    text-shadow: 0.1rem 0 $sassline-backgroundColour,0.15rem 0 $sassline-backgroundColour,-0.1rem 0 $sassline-backgroundColour,-0.15rem 0 $sassline-backgroundColour;
 
     &:hover, &:active, &:focus {
-      background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($hoverColour,20%) 50%);
-      background-image: -moz-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($hoverColour,20%) 50%);
-      background-image: -o-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($hoverColour,20%) 50%);
-      background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,lighten($hoverColour,20%) 50%);
+      background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($sassline-hoverColour,20%) 50%);
+      background-image: -moz-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($sassline-hoverColour,20%) 50%);
+      background-image: -o-linear-gradient(top,rgba(0, 0, 0, 0) 50%,lighten($sassline-hoverColour,20%) 50%);
+      background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,lighten($sassline-hoverColour,20%) 50%);
     }
   }
 
@@ -66,7 +66,7 @@ a {
     -o-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
 
-    @include baseline($fontsize: zeta, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: all);
+    @include sassline-baseline($sassline-fontsize: zeta, $sassline-font: $sassline-bodytype, $sassline-lineheight: 2, $sassline-below: 2, $sassline-breakpoint: all);
   }
 
   // Headings. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
@@ -77,45 +77,45 @@ a {
     -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
     font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
 
-    color: $headingColour;
-    font-family: unquote(map-get($headingtype, font-family));
+    color: $sassline-headingColour;
+    font-family: unquote(map-get($sassline-headingtype, font-family));
     font-style: normal;
-    font-weight: map-get($headingtype, bold);
+    font-weight: map-get($sassline-headingtype, bold);
   }
 
   // Heading level 1.
   h1, .alpha {
-    @include sassline($fontsize: alpha, $font: $headingtype, $lineheight: 3, $below: 1, $breakpoint: all);
+    @include sassline($sassline-fontsize: alpha, $sassline-font: $sassline-headingtype, $sassline-lineheight: 3, $sassline-below: 1, $sassline-breakpoint: all);
   }
 
   // Heading level 2.
   h2, .beta {
-    @include sassline(beta, $headingtype, 3, 1, all);
+    @include sassline(beta, $sassline-headingtype, 3, 1, all);
   }
 
   // Heading level 3.
   h3, .gamma {
-    @include sassline(gamma, $headingtype, 3, 1, all);
+    @include sassline(gamma, $sassline-headingtype, 3, 1, all);
   }
 
   // Heading level 4.
   h4, .delta {
-    @include sassline(delta, $headingtype, 2, 0, all);
+    @include sassline(delta, $sassline-headingtype, 2, 0, all);
   }
 
   // Heading level 5.
   h5, .epsilon {
-    @include sassline(epsilon, $headingtype, 2, 0, all);
+    @include sassline(epsilon, $sassline-headingtype, 2, 0, all);
   }
 
   // Heading level 6.
   h6, .zeta {
-    @include sassline(zeta, $headingtype, 2, 0, all);
+    @include sassline(zeta, $sassline-headingtype, 2, 0, all);
   }
 
   // Lists.
   ul, ol {
-    @include baseline(zeta, $bodytype, 2, 2, all);
+    @include sassline-baseline(zeta, $sassline-bodytype, 2, 2, all);
 
     li {
       -webkit-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
@@ -126,7 +126,7 @@ a {
 
       margin-left: 2rem;
 
-      @include breakpoint(break-1) {
+      @include sassline-breakpoint(break-1) {
         margin-left: 0;
       }
 
@@ -216,7 +216,7 @@ a {
 
   // Definition lists.
   dl {
-    @include baseline(zeta, $bodytype, 2, 2, all);
+    @include sassline-baseline(zeta, $sassline-bodytype, 2, 2, all);
 
     dt, dd {
       -webkit-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
@@ -227,13 +227,13 @@ a {
 
       margin-left: 2rem;
 
-      @include breakpoint(break-1) {
+      @include sassline-breakpoint(break-1) {
         margin-left: 0;
       }
     }
 
     dt {
-      font-weight: map-get($bodytype, bold);
+      font-weight: map-get($sassline-bodytype, bold);
     }
 
     dd + dt {
@@ -249,17 +249,17 @@ a {
     -o-font-feature-settings: 'liga' 1, 'lnum' 1, 'tnum' 1, 'kern' 1;
     font-feature-settings: 'liga' 1, 'lnum' 1, 'tnum' 1, 'kern' 1;
 
-    font-family: unquote(map-get($headingtype, font-family));
+    font-family: unquote(map-get($sassline-headingtype, font-family));
     font-style: normal;
-    font-weight: map-get($headingtype, regular);
+    font-weight: map-get($sassline-headingtype, regular);
     width: 100%;
 
-    @include sassline(eta, $headingtype, 2, 0, all);
+    @include sassline(eta, $sassline-headingtype, 2, 0, all);
 
     thead {
 
       th {
-        @include sassline(zeta, $headingtype, 2, 0, all);
+        @include sassline(zeta, $sassline-headingtype, 2, 0, all);
         padding-bottom: 1px;
       }
     }
@@ -267,21 +267,21 @@ a {
 
   // Bold.
   b, strong, .bold {
-    font-weight: map-get($bodytype, bold);
+    font-weight: map-get($sassline-bodytype, bold);
   }
 
   // Italic.
   em, i, .italic {
-    font-style: map-get($bodytype, italic);
+    font-style: map-get($sassline-bodytype, italic);
   }
 
   // Caption and inline small text.
   small, .caption {
-    font-family: unquote(map-get($headingtype, font-family));
+    font-family: unquote(map-get($sassline-headingtype, font-family));
     font-style: normal;
-    font-weight: map-get($headingtype, regular);
+    font-weight: map-get($sassline-headingtype, regular);
 
-    @include fontsize(theta, all);
+    @include sassline-fontsize(theta, all);
   }
 
   small {
@@ -289,9 +289,9 @@ a {
   }
 
   .caption {
-    color: $captionColour;
+    color: $sassline-captionColour;
 
-    @include baseline(theta, $headingtype, 2, 2, all);
+    @include sassline-baseline(theta, $sassline-headingtype, 2, 2, all);
   }
 
   // Nice spacing for captions.
@@ -307,44 +307,44 @@ a {
   blockquote {
 
     p {
-      border-left: 0.15rem solid $linkColour;
-      font-style: map-get($bodytype, italic);
+      border-left: 0.15rem solid $sassline-linkColour;
+      font-style: map-get($sassline-bodytype, italic);
       padding-left: 1rem;
 
       // Add spacing below blockquote paragraphs to align to baseline grid.
-      $get-scale: map-get($modular-scale, scale-0);
-      $get-size: map-get($get-scale, zeta);
-      $rootsize: nth($sizes, 1);
-      $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001};
-      $baseline-push: #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001)};
+      $sassline-get-scale: map-get($sassline-modular-scale, scale-0);
+      $sassline-get-size: map-get($sassline-get-scale, zeta);
+      $sassline-rootsize: nth($sassline-sizes, 1);
+      $sassline-baseline-shift: #{($sassline-get-size / 2 * ((2 * $sassline-rootsize / $sassline-get-size) - map-get($sassline-bodytype, cap-height))) / $sassline-rootsize + 0.00001};
+      $sassline-baseline-push: #{3 - (($sassline-get-size * ((2 * $sassline-rootsize / $sassline-get-size) - map-get($sassline-bodytype, cap-height))) / $sassline-rootsize + 0.00001)};
 
-      margin-bottom: #{$baseline-push}rem;
-      padding-bottom: #{$baseline-shift}rem;
+      margin-bottom: #{$sassline-baseline-push}rem;
+      padding-bottom: #{$sassline-baseline-shift}rem;
 
-      @for $i from 2 through $breakpoints-limit {
-        $get-scale: map-get($modular-scale, scale-#{$i - 1});
-        $get-size: map-get($get-scale, zeta);
-        $rootsize: nth($sizes, $i);
-        $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001};
-        $baseline-push: #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001)};
+      @for $i from 2 through $sassline-breakpoints-limit {
+        $sassline-get-scale: map-get($sassline-modular-scale, scale-#{$i - 1});
+        $sassline-get-size: map-get($sassline-get-scale, zeta);
+        $sassline-rootsize: nth($sassline-sizes, $i);
+        $sassline-baseline-shift: #{($sassline-get-size / 2 * ((2 * $sassline-rootsize / $sassline-get-size) - map-get($sassline-bodytype, cap-height))) / $sassline-rootsize + 0.00001};
+        $sassline-baseline-push: #{3 - (($sassline-get-size * ((2 * $sassline-rootsize / $sassline-get-size) - map-get($sassline-bodytype, cap-height))) / $sassline-rootsize + 0.00001)};
 
-        @media screen and (min-width: nth($points, $i) / 16 * 1em ) {
-          margin-bottom: #{$baseline-push}rem;
-          padding-bottom: #{$baseline-shift}rem;
+        @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
+          margin-bottom: #{$sassline-baseline-push}rem;
+          padding-bottom: #{$sassline-baseline-shift}rem;
         }
       }
     }
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       margin-left: -1rem;
     }
   }
 
   // Horizontal rule.
   hr {
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0, 0, 0, 0)),to($captionColour));
-    background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 50%,$captionColour 50%);
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,$captionColour 50%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0, 0, 0, 0)),to($sassline-captionColour));
+    background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 50%,$sassline-captionColour 50%);
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,$sassline-captionColour 50%);
     background-position: 0 50%;
     background-repeat: repeat-x;
     background-size: 100% 0.15rem;
@@ -356,8 +356,8 @@ a {
 
   // Code block.
   code, pre {
-    background-color: $codeBackgroundColour;
-    font-family: unquote(map-get($monospacetype, font-family));
+    background-color: $sassline-codeBackgroundColour;
+    font-family: unquote(map-get($sassline-monospacetype, font-family));
   }
 
   pre {
@@ -373,7 +373,7 @@ a {
   code {
     line-height: 1rem;
 
-    @include fontsize(theta, all);
+    @include sassline-fontsize(theta, all);
   }
 
   // Letter space those capitals people, Jan Tschichold would be proud.

@@ -4,14 +4,14 @@
 .global-footer {
 
   p {
-    color: $captionColour;
-    font-family: unquote(map-get($headingtype, font-family));
+    color: $sassline-captionColour;
+    font-family: unquote(map-get($sassline-headingtype, font-family));
     font-style: normal;
-    font-weight: map-get($headingtype, regular);
+    font-weight: map-get($sassline-headingtype, regular);
     padding: 1rem 0;
     margin: 0;
     text-align: center;
 
-    @include fontsize(eta, all);
+    @include sassline-fontsize(eta, all);
   }
 }

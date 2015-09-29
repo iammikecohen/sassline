@@ -32,7 +32,7 @@
     position: absolute;
     zoom: 1;
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       max-height: none;
       position: relative;
     }
@@ -52,23 +52,23 @@
   -o-user-select: none;
   user-select: none;
 
-  @include breakpoint(break-1) {
+  @include sassline-breakpoint(break-1) {
     display: none;
   }
 }
 
 // Demo overrides.
 .main-nav {
-  @include breakpoint(break-1) {
+  @include sassline-breakpoint(break-1) {
     display: inline-block;
     width: calc(100% - 132px - 2rem);
     vertical-align: middle;
   }
 
   .main-nav__list {
-    border-top: 0.1rem solid darken($white, 15%);
+    border-top: 0.1rem solid darken($sassline-white, 15%);
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       border: 0;
       background-color: transparent;
       margin-left: 0;
@@ -78,11 +78,11 @@
   }
 
   li {
-    font-family: unquote(map-get($headingtype, font-family));
+    font-family: unquote(map-get($sassline-headingtype, font-family));
     font-style: normal;
-    font-weight: map-get($headingtype, regular);
+    font-weight: map-get($sassline-headingtype, regular);
 
-    @include fontsize(16, 0);
+    @include sassline-fontsize(16, 0);
 
     a, span {
       -webkit-user-select: none;
@@ -90,19 +90,19 @@
       -ms-user-select: none;
       user-select: none;
 
-      border-bottom: 0.1rem solid darken($white, 15%);
-      color: $linkColour;
+      border-bottom: 0.1rem solid darken($sassline-white, 15%);
+      color: $sassline-linkColour;
       cursor: pointer;
       display: block;
       padding: 10px 3%;
 
       &:hover, &:active, &:focus {
-        background-color: $linkColour;
-        color: $white;
+        background-color: $sassline-linkColour;
+        color: $sassline-white;
       }
     }
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       display: inline-block;
       letter-spacing: 0.1rem;
       margin-right: 2rem;
@@ -110,31 +110,31 @@
       text-transform: uppercase;
       width: auto;
 
-      @include fontsize(12, 1);
+      @include sassline-fontsize(12, 1);
 
       a, span {
         border: 0;
-        color: $captionColour;
+        color: $sassline-captionColour;
         display: inline;
         padding: 0;
 
         &:hover, &:active, &:focus {
           background-color: transparent;
-          color: $linkColour;
+          color: $sassline-linkColour;
         }
       }
     }
 
-    @include breakpoint(break-2) {
-      @include fontsize(12, 2);
+    @include sassline-breakpoint(break-2) {
+      @include sassline-fontsize(12, 2);
     }
 
-    @include breakpoint(break-3) {
-      @include fontsize(12, 3);
+    @include sassline-breakpoint(break-3) {
+      @include sassline-fontsize(12, 3);
     }
 
-    @include breakpoint(break-4) {
-      @include fontsize(12, 4);
+    @include sassline-breakpoint(break-4) {
+      @include sassline-fontsize(12, 4);
     }
   }
 }
@@ -143,7 +143,7 @@
 
   .nav-collapse {
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       display: inline-block;
       max-height: none;
       position: relative;
@@ -171,7 +171,7 @@
       background-position: 0 30px;
     }
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       display: none;
     }
   }

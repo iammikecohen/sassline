@@ -2,7 +2,7 @@
 // ---------------------------------------
 
 .global-header {
-  background-color: $backgroundColour;
+  background-color: $sassline-backgroundColour;
   font-size: 0;
 
   &__logo {
@@ -17,7 +17,7 @@
     vertical-align: middle;
     width: 132px;
 
-    @include breakpoint(break-1) {
+    @include sassline-breakpoint(break-1) {
       margin-left: 2rem;
     }
 
