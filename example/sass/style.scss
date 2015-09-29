@@ -1,11 +1,21 @@
 /* CSS compiled from SCSS */
 /* --------------------------------------- */
+@import "../../assets/sass/sassline";
+
+// Text colours. British English.
+$sassline-headingColour: #2E2E2E !default;
+$sassline-bodyColour: #494949 !default;
+$sassline-linkColour: #0E58F5 !default;
+$sassline-hoverColour: #0B348B !default;
+$sassline-captionColour: #BDC8CC !default;
+$sassline-white: #FFFFFF !default;
+
+// Background colours.
+$sassline-backgroundColour: #FCFCFC !default;
+$sassline-codeBackgroundColour: #F5F4F2 !default;
 
 // Import Sassline base SCSS files in order so variables are read correctly.
 @import "base/reset";
-@import "base/variables";
-@import "base/modular-scale";
-@import "base/mixins";
 @import "base/typography";
 @import "base/layouts";
 

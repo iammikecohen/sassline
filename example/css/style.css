@@ -1,5 +1,15 @@
 /* CSS compiled from SCSS */
 /* --------------------------------------- */
+/* CSS compiled from SCSS */
+/* --------------------------------------- */
+#baseline.show-grid {
+  background-image: -webkit-linear-gradient(top, cyan 0, rgba(255, 255, 255, 0) 1px);
+  background-image: -moz-linear-gradient(top, cyan 0, rgba(255, 255, 255, 0) 1px);
+  background-image: -o-linear-gradient(top, cyan 0, rgba(255, 255, 255, 0) 1px);
+  background-image: linear-gradient(to bottom, cyan 0, rgba(255, 255, 255, 0) 1px);
+  background-repeat: repeat-y;
+  background-size: 100% 1rem; }
+
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -992,3 +1002,5 @@ img {
   background-image: linear-gradient(to bottom, cyan 0, rgba(255, 255, 255, 0) 1px);
   background-repeat: repeat-y;
   background-size: 100% 1rem; }
+
+/*# sourceMappingURL=style.css.map */
