@@ -132,7 +132,10 @@ $sassline-max-widths: map-values($sassline-maxwidths);
 @mixin sassline-font-percent($target, $container) {
   font-size: #{$target / $container}rem;
 }
-@mixin sassline-spacing($baseline-push, $baseline-shift) {
+@mixin sassline-spacing($fontsize, $lineheight, $cap-height, $rootsize, $below) {
+  $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
+  $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
+  
   margin-bottom: #{$baseline-push}rem;
   padding-top: #{$baseline-shift}rem;
 }
@@ -224,10 +227,8 @@ $sassline-max-widths: map-values($sassline-maxwidths);
     // If using a number for fontsize.
     @if $font-value == number {
       $rootsize: nth($sassline-sizes, ($breakpoint + 1));
-      $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-      
-      @include sassline-spacing($baseline-push, $baseline-shift);
+
+      @include sassline-spacing($fontsize, $lineheight, $cap-height, $rootsize, $below);
 
     // If using a variable from the scale for fontsize.
     } @else if $in-scale == true {
@@ -235,10 +236,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $get-size: map-get($get-scale, $fontsize);
       $rootsize: nth($sassline-sizes, ($breakpoint + 1));
 
-      $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-
-      @include sassline-spacing($baseline-push, $baseline-shift);
+      @include sassline-spacing($get-size, $lineheight, $cap-height, $rootsize, $below);
 
     } @else {
       @warn "#{$fontsize} is not a valid scale variable";
@@ -250,19 +248,15 @@ $sassline-max-widths: map-values($sassline-maxwidths);
     // If using a number for fontsize.
     @if $font-value == number {
       $rootsize: nth($sassline-sizes, 1);
-      $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
 
-      @include sassline-spacing($baseline-push, $baseline-shift);
+      @include sassline-spacing($fontsize, $lineheight, $cap-height, $rootsize, $below);
 
       // Loop through breakpoints.
       @for $i from 2 through $sassline-breakpoints-limit {
         $rootsize: nth($sassline-sizes, $i);
-        $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
-        $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
 
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          @include sassline-spacing($baseline-push, $baseline-shift);
+          @include sassline-spacing($fontsize, $lineheight, $cap-height, $rootsize, $below);
         }
       }
 
@@ -272,10 +266,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $get-size: map-get($get-scale, $fontsize);
       $rootsize: nth($sassline-sizes, 1);
 
-      $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-
-      @include sassline-spacing($baseline-push, $baseline-shift);
+      @include sassline-spacing($get-size, $lineheight, $cap-height, $rootsize, $below);
 
       // Loop through breakpoints.
       @for $i from 2 through $sassline-breakpoints-limit {
@@ -283,11 +274,8 @@ $sassline-max-widths: map-values($sassline-maxwidths);
         $get-size: map-get($get-scale, $fontsize);
         $rootsize: nth($sassline-sizes, $i);
 
-        $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
-        $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          @include sassline-spacing($baseline-push, $baseline-shift);
+          @include sassline-spacing($get-size, $lineheight, $cap-height, $rootsize, $below);
         }
       }
 
