@@ -9,25 +9,25 @@
   @include sassline-clearfix;
 
   @include sassline-breakpoint(break-3) {
-    @include sassline-maxwidth(3);
+    @include sassline-maxwidth($sassline-max-widths, 3);
   }
 
   @include sassline-breakpoint(break-4) {
-    @include sassline-maxwidth(4);
+    @include sassline-maxwidth($sassline-max-widths, 4);
   }
 }
 
 // Single column (based on measure for typeset content).
 .single-measure {
   margin: 0 auto;
-  @include sassline-measure(all);
+  @include sassline-maxwidth($sassline-line-widths, all);
 }
 
 // Base column styles.
 .column {
   margin: 0 auto;
   width: 100%;
-  @include sassline-measure(0);
+  @include sassline-maxwidth($sassline-line-widths, 0);
 
   @include sassline-breakpoint(break-1) {
     float: left;
