@@ -129,6 +129,14 @@ $sassline-max-widths: map-values($sassline-maxwidths);
   @return $output;
 }
 
+@mixin sassline-font-percent($target, $container) {
+  font-size: #{$target / $container}rem;
+}
+@mixin sassline-spacing($baseline-push, $baseline-shift) {
+  margin-bottom: #{$baseline-push}rem;
+  padding-top: #{$baseline-shift}rem;
+}
+
 // Font-size in rems. Either set per breakpoint or for all.
 // Use values as you would for pixels i.e. 16 or use values from the modular scale.
 @mixin sassline-fontsize($fontsize, $breakpoint: 0) {
@@ -144,15 +152,12 @@ $sassline-max-widths: map-values($sassline-maxwidths);
 
     // If using a number for fontsize.
     @if $font-value == number {
-      font-size: #{$fontsize / nth($sassline-sizes, ($breakpoint + 1))}rem;
-
+      @include sassline-font-percent($fontsize, nth($sassline-sizes, ($breakpoint + 1)));
     // If using a variable from the scale for fontsize.
     } @else if $in-scale == true {
       $get-scale: map-get($sassline-modular-scale, scale-#{$breakpoint});
       $get-size: map-get($get-scale, $fontsize);
-
-      font-size: #{$get-size / nth($sassline-sizes, ($breakpoint + 1))}rem;
-
+      @include sassline-font-percent($get-size, nth($sassline-sizes, ($breakpoint + 1)));
     } @else {
       @warn "#{$fontsize} is not a valid scale variable";
     }
@@ -162,12 +167,12 @@ $sassline-max-widths: map-values($sassline-maxwidths);
 
     // If using a number for fontsize.
     @if $font-value == number {
-      font-size: #{$fontsize / nth($sassline-sizes, 1)}rem;
+      @include sassline-font-percent($fontsize, nth($sassline-sizes, 1));
 
       // Loop through breakpoints.
       @for $i from 2 through $sassline-breakpoints-limit {
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          font-size: #{$fontsize / nth($sassline-sizes, $i)}rem;
+          @include sassline-font-percent($fontsize, nth($sassline-sizes, $i));
         }
       }
 
@@ -175,7 +180,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
     } @else if $in-scale == true {
       $get-scale: map-get($sassline-modular-scale, scale-0);
       $get-size: map-get($get-scale, $fontsize);
-      font-size: #{$get-size / nth($sassline-sizes, 1)}rem;
+      @include sassline-font-percent($get-size, nth($sassline-sizes, 1));
 
       // Loop through breakpoints.
       @for $i from 2 through $sassline-breakpoints-limit {
@@ -183,7 +188,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
         $get-size: map-get($get-scale, $fontsize);
 
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          font-size: #{$get-size / nth($sassline-sizes, $i)}rem;
+          @include sassline-font-percent($get-size, nth($sassline-sizes, $i));
         }
       }
 
@@ -221,9 +226,8 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $rootsize: nth($sassline-sizes, ($breakpoint + 1));
       $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
     // If using a variable from the scale for fontsize.
     } @else if $in-scale == true {
@@ -234,8 +238,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
 
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
     } @else {
       @warn "#{$fontsize} is not a valid scale variable";
@@ -250,8 +253,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
 
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
       // Loop through breakpoints.
       @for $i from 2 through $sassline-breakpoints-limit {
@@ -260,8 +262,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
         $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
 
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          margin-bottom: #{$baseline-push}rem;
-          padding-top: #{$baseline-shift}rem;
+          @include sassline-spacing($baseline-push, $baseline-shift);
         }
       }
 
@@ -274,8 +275,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
 
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
       // Loop through breakpoints.
       @for $i from 2 through $sassline-breakpoints-limit {
@@ -287,8 +287,7 @@ $sassline-max-widths: map-values($sassline-maxwidths);
         $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
 
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          margin-bottom: #{$baseline-push}rem;
-          padding-top: #{$baseline-shift}rem;
+          @include sassline-spacing($baseline-push, $baseline-shift);
         }
       }
 
@@ -316,9 +315,9 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $rootsize: nth($sassline-sizes, ($breakpoint + 1));
       $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-      font-size: #{$fontsize / nth($sassline-sizes, ($breakpoint + 1))}rem;
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      
+      @include sassline-font-percent($fontsize, nth($sassline-sizes, ($breakpoint + 1)));
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
     } @else if $in-scale == true {
       $get-scale: map-get($sassline-modular-scale, scale-#{$breakpoint});
@@ -326,9 +325,9 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $rootsize: nth($sassline-sizes, ($breakpoint + 1));
       $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-      font-size: #{$get-size / nth($sassline-sizes, ($breakpoint + 1))}rem;
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+
+      @include sassline-font-percent($get-size, nth($sassline-sizes, ($breakpoint + 1)));
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
     } @else {
       @warn "#{$fontsize} is not a valid scale variable";
@@ -340,18 +339,17 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $rootsize: nth($sassline-sizes, 1);
       $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-      font-size: #{$fontsize / nth($sassline-sizes, 1)}rem;
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      @include sassline-font-percent($fontsize, nth($sassline-sizes, 1));
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
       @for $i from 2 through $sassline-breakpoints-limit {
         $rootsize: nth($sassline-sizes, $i);
         $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
         $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          font-size: #{$fontsize / nth($sassline-sizes, $i)}rem;
-          margin-bottom: #{$baseline-push}rem;
-          padding-top: #{$baseline-shift}rem;
+          @include sassline-font-percent($fontsize, nth($sassline-sizes, $i));
+          @include sassline-spacing($baseline-push, $baseline-shift);
+
         }
       }
 
@@ -361,9 +359,8 @@ $sassline-max-widths: map-values($sassline-maxwidths);
       $rootsize: nth($sassline-sizes, 1);
       $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
       $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-      font-size: #{$get-size / nth($sassline-sizes, 1)}rem;
-      margin-bottom: #{$baseline-push}rem;
-      padding-top: #{$baseline-shift}rem;
+      @include sassline-font-percent($get-size, nth($sassline-sizes, 1));
+      @include sassline-spacing($baseline-push, $baseline-shift);
 
       @for $i from 2 through $sassline-breakpoints-limit {
         $get-scale: map-get($sassline-modular-scale, scale-#{$i - 1});
@@ -372,9 +369,9 @@ $sassline-max-widths: map-values($sassline-maxwidths);
         $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
         $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
         @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          font-size: #{$get-size / nth($sassline-sizes, $i)}rem;
-          margin-bottom: #{$baseline-push}rem;
-          padding-top: #{$baseline-shift}rem;
+          @include sassline-font-percent($get-size, nth($sassline-sizes, $i));
+          @include sassline-spacing($baseline-push, $baseline-shift);
+
         }
       }
 
