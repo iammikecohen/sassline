@@ -66,7 +66,7 @@ a {
     -o-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
 
-    @include sassline-baseline($sassline-fontsize: zeta, $sassline-font: $sassline-bodytype, $sassline-lineheight: 2, $sassline-below: 2, $sassline-breakpoint: all);
+    @include sassline-baseline($fontsize: zeta, $font: $sassline-bodytype, $lineheight: 2, $below: 2, $breakpoint: all);
   }
 
   // Headings. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
@@ -85,7 +85,7 @@ a {
 
   // Heading level 1.
   h1, .alpha {
-    @include sassline($sassline-fontsize: alpha, $sassline-font: $sassline-headingtype, $sassline-lineheight: 3, $sassline-below: 1, $sassline-breakpoint: all);
+    @include sassline($fontsize: alpha, $font: $sassline-headingtype, $lineheight: 3, $below: 1, $breakpoint: all);
   }
 
   // Heading level 2.

@@ -129,7 +129,7 @@
 .column--sidebar {
   @include sassline-breakpoint(break-3) {
     p {
-      @include sassline($sassline-fontsize: eta, $sassline-font: $sassline-bodytype, $sassline-lineheight: 2, $sassline-below: 2, $sassline-breakpoint: 3);
+      @include sassline($fontsize: eta, $font: $sassline-bodytype, $lineheight: 2, $below: 2, $breakpoint: 3);
     }
 
     li {
@@ -139,7 +139,7 @@
 
   @include sassline-breakpoint(break-4) {
     p {
-      @include sassline($sassline-fontsize: eta, $sassline-font: $sassline-bodytype, $sassline-lineheight: 2, $sassline-below: 2, $sassline-breakpoint: 4);
+      @include sassline($fontsize: eta, $font: $sassline-bodytype, $lineheight: 2, $below: 2, $breakpoint: 4);
     }
 
     li {
