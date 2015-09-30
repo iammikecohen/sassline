@@ -146,154 +146,202 @@ a {
   font-weight: 700; }
 .typeset h1, .typeset .alpha {
   line-height: 3rem;
-  font-size: 2.33333rem;
   margin-bottom: 0.26999rem;
-  padding-top: 0.73001rem; }
+  padding-top: 0.73001rem;
+  font-size: 2.33333rem; }
   @media screen and (min-width: 40em) {
     .typeset h1, .typeset .alpha {
-      font-size: 2.14286rem;
       margin-bottom: 0.20713rem;
       padding-top: 0.79287rem; } }
   @media screen and (min-width: 50em) {
     .typeset h1, .typeset .alpha {
-      font-size: 2.13333rem;
       margin-bottom: 0.20399rem;
       padding-top: 0.79601rem; } }
   @media screen and (min-width: 64em) {
     .typeset h1, .typeset .alpha {
-      font-size: 2.35294rem;
       margin-bottom: 0.27646rem;
       padding-top: 0.72354rem; } }
   @media screen and (min-width: 100em) {
     .typeset h1, .typeset .alpha {
-      font-size: 2.63158rem;
       margin-bottom: 0.36841rem;
       padding-top: 0.63159rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset h1, .typeset .alpha {
+      font-size: 2.14286rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset h1, .typeset .alpha {
+      font-size: 2.13333rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset h1, .typeset .alpha {
+      font-size: 2.35294rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset h1, .typeset .alpha {
+      font-size: 2.63158rem; } }
 .typeset h2, .typeset .beta {
   line-height: 3rem;
-  font-size: 2.08333rem;
   margin-bottom: 0.18749rem;
-  padding-top: 0.81251rem; }
+  padding-top: 0.81251rem;
+  font-size: 2.08333rem; }
   @media screen and (min-width: 40em) {
     .typeset h2, .typeset .beta {
-      font-size: 1.9rem;
       margin-bottom: 0.12699rem;
       padding-top: 0.87301rem; } }
   @media screen and (min-width: 50em) {
     .typeset h2, .typeset .beta {
-      font-size: 1.87333rem;
       margin-bottom: 0.11819rem;
       padding-top: 0.88181rem; } }
   @media screen and (min-width: 64em) {
     .typeset h2, .typeset .beta {
-      font-size: 2.08824rem;
       margin-bottom: 0.18911rem;
       padding-top: 0.81089rem; } }
   @media screen and (min-width: 100em) {
     .typeset h2, .typeset .beta {
-      font-size: 2.31053rem;
       margin-bottom: 0.26246rem;
       padding-top: 0.73754rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset h2, .typeset .beta {
+      font-size: 1.9rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset h2, .typeset .beta {
+      font-size: 1.87333rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset h2, .typeset .beta {
+      font-size: 2.08824rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset h2, .typeset .beta {
+      font-size: 2.31053rem; } }
 .typeset h3, .typeset .gamma {
   line-height: 3rem;
-  font-size: 1.86667rem;
   margin-bottom: 0.11599rem;
-  padding-top: 0.88401rem; }
+  padding-top: 0.88401rem;
+  font-size: 1.86667rem; }
   @media screen and (min-width: 40em) {
     .typeset h3, .typeset .gamma {
-      font-size: 1.71429rem;
       margin-bottom: 0.0657rem;
       padding-top: 0.9343rem; } }
   @media screen and (min-width: 50em) {
     .typeset h3, .typeset .gamma {
-      font-size: 1.70667rem;
       margin-bottom: 0.06319rem;
       padding-top: 0.93681rem; } }
   @media screen and (min-width: 64em) {
     .typeset h3, .typeset .gamma {
-      font-size: 1.76471rem;
       margin-bottom: 0.08234rem;
       padding-top: 0.91766rem; } }
   @media screen and (min-width: 100em) {
     .typeset h3, .typeset .gamma {
-      font-size: 1.85789rem;
       margin-bottom: 0.1131rem;
       padding-top: 0.8869rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset h3, .typeset .gamma {
+      font-size: 1.71429rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset h3, .typeset .gamma {
+      font-size: 1.70667rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset h3, .typeset .gamma {
+      font-size: 1.76471rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset h3, .typeset .gamma {
+      font-size: 1.85789rem; } }
 .typeset h4, .typeset .delta {
   line-height: 2rem;
-  font-size: 1.66667rem;
   margin-bottom: -0.45001rem;
-  padding-top: 0.45001rem; }
+  padding-top: 0.45001rem;
+  font-size: 1.66667rem; }
   @media screen and (min-width: 40em) {
     .typeset h4, .typeset .delta {
-      font-size: 1.52143rem;
       margin-bottom: -0.49794rem;
       padding-top: 0.49794rem; } }
   @media screen and (min-width: 50em) {
     .typeset h4, .typeset .delta {
-      font-size: 1.5rem;
       margin-bottom: -0.50501rem;
       padding-top: 0.50501rem; } }
   @media screen and (min-width: 64em) {
     .typeset h4, .typeset .delta {
-      font-size: 1.57059rem;
       margin-bottom: -0.48172rem;
       padding-top: 0.48172rem; } }
   @media screen and (min-width: 100em) {
     .typeset h4, .typeset .delta {
-      font-size: 1.63684rem;
       margin-bottom: -0.45985rem;
       padding-top: 0.45985rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset h4, .typeset .delta {
+      font-size: 1.52143rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset h4, .typeset .delta {
+      font-size: 1.5rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset h4, .typeset .delta {
+      font-size: 1.57059rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset h4, .typeset .delta {
+      font-size: 1.63684rem; } }
 .typeset h5, .typeset .epsilon {
   line-height: 2rem;
-  font-size: 1.49167rem;
   margin-bottom: -0.50776rem;
-  padding-top: 0.50776rem; }
+  padding-top: 0.50776rem;
+  font-size: 1.49167rem; }
   @media screen and (min-width: 40em) {
     .typeset h5, .typeset .epsilon {
-      font-size: 1.37143rem;
       margin-bottom: -0.54744rem;
       padding-top: 0.54744rem; } }
   @media screen and (min-width: 50em) {
     .typeset h5, .typeset .epsilon {
-      font-size: 1.36667rem;
       margin-bottom: -0.54901rem;
       padding-top: 0.54901rem; } }
   @media screen and (min-width: 64em) {
     .typeset h5, .typeset .epsilon {
-      font-size: 1.32353rem;
       margin-bottom: -0.56325rem;
       padding-top: 0.56325rem; } }
   @media screen and (min-width: 100em) {
     .typeset h5, .typeset .epsilon {
-      font-size: 1.31579rem;
       margin-bottom: -0.5658rem;
       padding-top: 0.5658rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset h5, .typeset .epsilon {
+      font-size: 1.37143rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset h5, .typeset .epsilon {
+      font-size: 1.36667rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset h5, .typeset .epsilon {
+      font-size: 1.32353rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset h5, .typeset .epsilon {
+      font-size: 1.31579rem; } }
 .typeset h6, .typeset .zeta {
   line-height: 2rem;
-  font-size: 1.33333rem;
   margin-bottom: -0.56001rem;
-  padding-top: 0.56001rem; }
+  padding-top: 0.56001rem;
+  font-size: 1.33333rem; }
   @media screen and (min-width: 40em) {
     .typeset h6, .typeset .zeta {
-      font-size: 1.21429rem;
       margin-bottom: -0.5993rem;
       padding-top: 0.5993rem; } }
   @media screen and (min-width: 50em) {
     .typeset h6, .typeset .zeta {
-      font-size: 1.2rem;
       margin-bottom: -0.60401rem;
       padding-top: 0.60401rem; } }
   @media screen and (min-width: 64em) {
     .typeset h6, .typeset .zeta {
-      font-size: 1.17647rem;
       margin-bottom: -0.61177rem;
       padding-top: 0.61177rem; } }
   @media screen and (min-width: 100em) {
     .typeset h6, .typeset .zeta {
-      font-size: 1.15789rem;
       margin-bottom: -0.6179rem;
       padding-top: 0.6179rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset h6, .typeset .zeta {
+      font-size: 1.21429rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset h6, .typeset .zeta {
+      font-size: 1.2rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset h6, .typeset .zeta {
+      font-size: 1.17647rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset h6, .typeset .zeta {
+      font-size: 1.15789rem; } }
 .typeset ul, .typeset ol {
   line-height: 2rem;
   margin-bottom: 1.43999rem;
@@ -404,55 +452,71 @@ a {
   font-weight: 400;
   width: 100%;
   line-height: 2rem;
-  font-size: 1.19167rem;
   margin-bottom: -0.60676rem;
-  padding-top: 0.60676rem; }
+  padding-top: 0.60676rem;
+  font-size: 1.19167rem; }
   @media screen and (min-width: 40em) {
     .typeset table {
-      font-size: 1.09286rem;
       margin-bottom: -0.63937rem;
       padding-top: 0.63937rem; } }
   @media screen and (min-width: 50em) {
     .typeset table {
-      font-size: 1.08667rem;
       margin-bottom: -0.64141rem;
       padding-top: 0.64141rem; } }
   @media screen and (min-width: 64em) {
     .typeset table {
-      font-size: 0.99412rem;
       margin-bottom: -0.67195rem;
       padding-top: 0.67195rem; } }
   @media screen and (min-width: 100em) {
     .typeset table {
-      font-size: 0.92632rem;
       margin-bottom: -0.69433rem;
       padding-top: 0.69433rem; } }
+  @media screen and (min-width: 40em) {
+    .typeset table {
+      font-size: 1.09286rem; } }
+  @media screen and (min-width: 50em) {
+    .typeset table {
+      font-size: 1.08667rem; } }
+  @media screen and (min-width: 64em) {
+    .typeset table {
+      font-size: 0.99412rem; } }
+  @media screen and (min-width: 100em) {
+    .typeset table {
+      font-size: 0.92632rem; } }
   .typeset table thead th {
     line-height: 2rem;
-    font-size: 1.33333rem;
     margin-bottom: -0.56001rem;
     padding-top: 0.56001rem;
+    font-size: 1.33333rem;
     padding-bottom: 1px; }
     @media screen and (min-width: 40em) {
       .typeset table thead th {
-        font-size: 1.21429rem;
         margin-bottom: -0.5993rem;
         padding-top: 0.5993rem; } }
     @media screen and (min-width: 50em) {
       .typeset table thead th {
-        font-size: 1.2rem;
         margin-bottom: -0.60401rem;
         padding-top: 0.60401rem; } }
     @media screen and (min-width: 64em) {
       .typeset table thead th {
-        font-size: 1.17647rem;
         margin-bottom: -0.61177rem;
         padding-top: 0.61177rem; } }
     @media screen and (min-width: 100em) {
       .typeset table thead th {
-        font-size: 1.15789rem;
         margin-bottom: -0.6179rem;
         padding-top: 0.6179rem; } }
+    @media screen and (min-width: 40em) {
+      .typeset table thead th {
+        font-size: 1.21429rem; } }
+    @media screen and (min-width: 50em) {
+      .typeset table thead th {
+        font-size: 1.2rem; } }
+    @media screen and (min-width: 64em) {
+      .typeset table thead th {
+        font-size: 1.17647rem; } }
+    @media screen and (min-width: 100em) {
+      .typeset table thead th {
+        font-size: 1.15789rem; } }
 .typeset b, .typeset strong, .typeset .bold {
   font-weight: 700; }
 .typeset em, .typeset i, .typeset .italic {
@@ -691,9 +755,9 @@ a {
   .column--quad p,
   .column--sidebar p {
     line-height: 2rem;
-    font-size: 0.99412rem;
     margin-bottom: 1.32805rem;
-    padding-top: 0.67195rem; }
+    padding-top: 0.67195rem;
+    font-size: 0.99412rem; }
   .column--trio li,
   .column--quad li,
   .column--sidebar li {
@@ -703,9 +767,9 @@ a {
   .column--quad p,
   .column--sidebar p {
     line-height: 2rem;
-    font-size: 0.92632rem;
     margin-bottom: 1.30567rem;
-    padding-top: 0.69433rem; }
+    padding-top: 0.69433rem;
+    font-size: 0.92632rem; }
   .column--trio li,
   .column--quad li,
   .column--sidebar li {

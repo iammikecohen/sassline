@@ -302,86 +302,8 @@ $sassline-max-widths: map-values($sassline-maxwidths);
 
 // Set fontsize and baseline at once. Mix of fontsize and baseline mixin.
 @mixin sassline($fontsize, $font, $lineheight: 2, $below: 2, $breakpoint: 0) {
-  $font-value: type-of($fontsize);
-  $break-value: type-of($breakpoint);
-  $cap-height: map-get($font, cap-height);
-  $in-scale: sassline-in-modular-scale(scale-0, $fontsize);
-
-  line-height: #{$lineheight}rem;
-
-  @if $break-value == number and $breakpoint <= ($sassline-breakpoints-limit - 1) and $breakpoint >= 0 {
-
-    @if $font-value == number {
-      $rootsize: nth($sassline-sizes, ($breakpoint + 1));
-      $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-      
-      @include sassline-font-percent($fontsize, nth($sassline-sizes, ($breakpoint + 1)));
-      @include sassline-spacing($baseline-push, $baseline-shift);
-
-    } @else if $in-scale == true {
-      $get-scale: map-get($sassline-modular-scale, scale-#{$breakpoint});
-      $get-size: map-get($get-scale, $fontsize);
-      $rootsize: nth($sassline-sizes, ($breakpoint + 1));
-      $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-
-      @include sassline-font-percent($get-size, nth($sassline-sizes, ($breakpoint + 1)));
-      @include sassline-spacing($baseline-push, $baseline-shift);
-
-    } @else {
-      @warn "#{$fontsize} is not a valid scale variable";
-    }
-
-  } @else if $breakpoint == all {
-
-    @if $font-value == number {
-      $rootsize: nth($sassline-sizes, 1);
-      $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-      @include sassline-font-percent($fontsize, nth($sassline-sizes, 1));
-      @include sassline-spacing($baseline-push, $baseline-shift);
-
-      @for $i from 2 through $sassline-breakpoints-limit {
-        $rootsize: nth($sassline-sizes, $i);
-        $baseline-shift: #{($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001};
-        $baseline-push: #{$below - (($fontsize / 2 * (($lineheight * $rootsize / $fontsize) - $cap-height)) / $rootsize + 0.00001)};
-        @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          @include sassline-font-percent($fontsize, nth($sassline-sizes, $i));
-          @include sassline-spacing($baseline-push, $baseline-shift);
-
-        }
-      }
-
-    } @else if $in-scale == true {
-      $get-scale: map-get($sassline-modular-scale, scale-0);
-      $get-size: map-get($get-scale, $fontsize);
-      $rootsize: nth($sassline-sizes, 1);
-      $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
-      $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-      @include sassline-font-percent($get-size, nth($sassline-sizes, 1));
-      @include sassline-spacing($baseline-push, $baseline-shift);
-
-      @for $i from 2 through $sassline-breakpoints-limit {
-        $get-scale: map-get($sassline-modular-scale, scale-#{$i - 1});
-        $get-size: map-get($get-scale, $fontsize);
-        $rootsize: nth($sassline-sizes, $i);
-        $baseline-shift: #{($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001};
-        $baseline-push: #{$below - (($get-size / 2 * (($lineheight * $rootsize / $get-size) - $cap-height)) / $rootsize + 0.00001)};
-        @media screen and (min-width: nth($sassline-points, $i) / 16 * 1em ) {
-          @include sassline-font-percent($get-size, nth($sassline-sizes, $i));
-          @include sassline-spacing($baseline-push, $baseline-shift);
-
-        }
-      }
-
-    } @else {
-      @warn "#{$fontsize} is not a valid scale variable";
-    }
-
-  } @else {
-    @warn "#{$breakpoint} is not valid to use as a breakpoint";
-  }
+  @include sassline-baseline($fontsize, $font, $lineheight, $below, $breakpoint);
+  @include sassline-fontsize($fontsize, $breakpoint);
 }
 
 // Clearfix.
